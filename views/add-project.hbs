@@ -1,0 +1,167 @@
+<html lang="en">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="/public/style.css">
+    <title>Add Project</title>
+</head>
+<body>
+<!-- navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid pe-5 ps-5">
+          <a class="navbar-brand me-5" href="/"><img src="/public/assets/logo.png" /></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active me-3" aria-current="page" href='/'>Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active fw-bold" aria-current="page" href='add-project'>Add Project</a>
+              </li>
+            </ul>
+            <a class="btn btn-dark" type="submit" href='contact-me'>Contact Me</a>
+          </div>
+        </div>
+      </nav>
+<!-- end navbar -->
+<!-- Form -->
+<div class="container-add-project">
+<div class="container-form-project d-flex justify-content-center align-items-center mt-5 pt-5">
+    <form  action='/add-project' method='POST' enctype="multipart/form-data">
+        <div class="h2 text-center mb-5">ADD MY PROJECT</div>
+
+        <div class="mb-3">
+        <label for="input-title" class="form-label">Title</label>
+        <input
+            type="text"
+            class="form-control "
+            id="input-title"
+            placeholder="Write here ..."
+            name="name"
+        />
+        </div>
+        <div class="row g-3 mb-3">
+        <div class="col">
+            <label for="input-title" class="form-label">Start Date</label>
+            <input 
+              type="date" 
+              class="form-control" 
+              placeholder="First name" 
+              aria-label="First name"
+              name="start_date"
+            >
+        </div>
+        <div class="col">
+            <label for="input-title" class="form-label">End Date</label>
+            <input 
+              type="date" 
+              class="form-control" 
+              placeholder="Last name" 
+              aria-label="Last name"
+              name="end_date"
+              >
+        </div>
+        </div>
+        <div class="mb-3">
+        <label for="input-content" class="form-label">Description</label>
+        <textarea
+            class="form-control"
+            id="input-content"
+            rows="5"
+            placeholder="Write here ..."
+            name="description"
+        ></textarea>
+        </div>
+
+        <label for="input-title" class="form-label">Technologies</label>
+        <div class="d-flex bd-highlight">
+            <div class="p-2 w-80 bd-highlight me-3 ">
+                <div class="form-check mb-2">
+                    <input 
+                      class="form-check-input me-3" 
+                      type="checkbox" 
+                      id="flexCheckDefault"
+                      name="node_js"
+                      value="fa-brands fa-node-js"
+                      >
+                    <label class="form-check-label text-muted" for="flexCheckDefault">
+                      Node Js
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input 
+                      class="form-check-input me-3" 
+                      type="checkbox" 
+                      id="flexCheckChecked" 
+                      name="react_js"
+                      value="fa-brands fa-react"
+                      >
+                    <label class="form-check-label text-muted" for="flexCheckChecked">
+                      React Js
+                    </label>
+                  </div>
+            </div>
+            <div class="p-2 flex-shrink-1 bd-highlight ">
+                  <div class="form-check mb-2">
+                    <input 
+                      class="form-check-input me-3" 
+                      type="checkbox" 
+                      id="flexCheckDefault"
+                      name="next_js"
+                      value="fa-solid fa-n"
+                      >
+                    <label class="form-check-label text-muted" for="flexCheckDefault">
+                      Next Js
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input 
+                      class="form-check-input  me-3" 
+                      type="checkbox" 
+                      id="flexCheckChecked"
+                      name="type_script"
+                      value="fa-brands fa-js" 
+                      >
+                    <label class="form-check-label text-muted" for="flexCheckChecked">
+                      TypeScript
+                    </label>
+                  </div>
+            </div>
+        </div>
+         <!-- input gambar -->
+         <div>
+          <label>Upload Image</label>
+          <div class="input-blog-image-group">
+            <label for="input-myproject-image">
+                <div class="left-file"><p>choose</p></div>
+                <div style="padding-right: 5px;" class="right-file"><img src="/public/assets/file.png" alt="file" style="transform:rotate(50deg);"/></div>
+            </label>
+            <input 
+              class="form-control" 
+              type="file" 
+              id="input-myproject-image" 
+              name="image"
+              hidden 
+              />
+          </div>
+         </div>
+         <!-- end input gambar -->
+
+        <div class="d-flex justify-content-end mt-5">
+        <button type="submit"  class="btn btn-dark">submit</button>
+        </div>
+    </form>
+    </div>
+</div>
+  
+<!-- End Form -->
+   
+    <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+    crossorigin="anonymous"
+    ></script>
+</body>
+</html>
