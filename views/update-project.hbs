@@ -30,7 +30,7 @@
     {{#each update_project}}
     <div
     class="container-form-project d-flex justify-content-center align-items-center pt-5">
-    <form  action='/update-project/{{this.id}}' method='POST' enctype='multipart/form-data'>
+    <form action='/update-project/{{this.id}}' method='POST' enctype='multipart/form-data'>
         <div class="h2 text-center mb-5">Update MY PROJECT</div>
 
         <div class="mb-3">
@@ -83,45 +83,45 @@
         <div class="d-flex bd-highlight">
             <div class="p-2 w-80 bd-highlight me-3 ">
                 <div class="form-check mb-2">
-                  {{!-- {{#if node_js}} --}}
+                  {{#if node_js}}
                     <input 
                       class="form-check-input me-3" 
                       type="checkbox" 
                       id="flexCheckDefault"
                       name="node_js"
                       value="{{this.node_js}}" 
-                      >
-                  {{!-- {{else}} --}}
+                      checked>
+                  {{else}}
                       <input 
                       class="form-check-input me-3" 
                       type="checkbox" 
                       id="flexCheckDefault"
                       name="node_js"
-                      value="fa-brands fa-node-js" hidden
+                      value="fa-brands fa-node-js" 
                       >
-                  {{!-- {{/if}} --}}
+                  {{/if}}
                     <label class="form-check-label text-muted" for="flexCheckDefault">
                       Node Js
                     </label>
                   </div>
                   <div class="form-check">
-                  {{!-- {{#if react_js}} --}}
+                  {{#if react_js}}
                     <input 
                       class="form-check-input me-3" 
                       type="checkbox" 
                       id="flexCheckChecked" 
                       name="react_js"
                       value="{{this.react_js}}"
-                      >
-                  {{!-- {{else}} --}}
+                      checked>
+                  {{else}}
                       <input 
                       class="form-check-input me-3" 
                       type="checkbox" 
                       id="flexCheckDefault"
-                      name="node_js"
-                      value="fa-brands fa-react" hidden
+                      name="react_js"
+                      value="fa-brands fa-react" 
                       >
-                  {{!-- {{/if}} --}}
+                  {{/if}}
                     <label class="form-check-label text-muted" for="flexCheckChecked">
                       React Js
                     </label>
@@ -129,39 +129,45 @@
             </div>
             <div class="p-2 flex-shrink-1 bd-highlight ">
                   <div class="form-check mb-2">
+                  {{#if next_js}}
                     <input 
                       class="form-check-input me-3" 
                       type="checkbox" 
                       id="flexCheckDefault"
                       name="next_js"
                       value="{{this.next_js}}"
-                      >
+                      checked>
+                   {{else}}
                       <input 
                       class="form-check-input me-3" 
                       type="checkbox" 
                       id="flexCheckDefault"
                       name="next_js"
-                      value="fa-solid fa-n" hidden
+                      value="fa-solid fa-n" 
                       >
+                    {{/if}}
                     <label class="form-check-label text-muted" for="flexCheckDefault">
                       Next Js
                     </label>
                   </div>
                   <div class="form-check">
+                    {{#if type_script}}
                     <input 
                       class="form-check-input  me-3" 
                       type="checkbox" 
                       id="flexCheckChecked"
                       name="type_script"
                       value="{{this.type_script}}" 
-                      >
+                      checked>
+                    {{else}}
                       <input 
                       class="form-check-input me-3" 
                       type="checkbox" 
                       id="flexCheckDefault"
                       name="type_script"
-                      value="fa-brands fa-js" hidden
+                      value="fa-brands fa-js" 
                       >
+                    {{/if}}
                     <label class="form-check-label text-muted" for="flexCheckChecked">
                       TypeScript
                     </label>

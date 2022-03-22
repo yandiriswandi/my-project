@@ -97,7 +97,7 @@
   <div class="container">
       <div class="row row-cols-3">
         <!-- card content -->
-        {{#each projects}}
+        {{#each project}}
         <div class="col">
           <div class="card" style="width: 21rem;">
               {{#if this.image}}
@@ -114,21 +114,17 @@
                  {{this.description}}
                 </p>
                 <div class="icon ms-3 mt-2">
-                  {{#if node_js includeZero=true}}
-                  <i class="{{node_js}}"></i>
-                  {{!-- {{else}} --}}
+                  {{#if this.node_js}}
+                  <i class="{{this.node_js}}"></i>
                   {{/if}}
-                  {{#if react_js includeZero=true}}
-                  <i class="{{react_js}}"></i>
-                  {{!-- {{else}} --}}
+                  {{#if this.react_js}}
+                  <i class="{{this.react_js}}"></i>
                   {{/if}}
-                   {{#if next_js includeZero=true}}
-                  <i class="{{next_js}}"></i>
-                  {{!-- {{else}} --}}
+                   {{#if this.next_js}}
+                  <i class="{{this.next_js}}"></i>
                    {{/if}}
-                  {{#if type_script includeZero=true}}
-                  <i class="{{type_script}}"></i>
-                  {{!-- {{else}} --}}
+                  {{#if this.type_script}}
+                  <i class="{{this.type_script}}"></i>
                   {{/if}}
                 </div>
                 {{#if isLogin}}

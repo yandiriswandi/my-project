@@ -85,15 +85,17 @@ app.get('/', function (req, res) {
             username,
             email,
           },
+          react_js: data.react_js == 'undefined' ? false : data.react_js,
+          node_js: data.node_js == 'undefined' ? false : data.node_js,
+          next_js: data.next_js == 'undefined' ? false : data.next_js,
+          type_script: data.type_script == 'undefined' ? false : data.type_script,
           // node_js : data.node_js ? data.node_js: undefined,
           // react_js : data.react_js ? data.react_js:undefined,
           // next_js : data.next_js ? data.next_js: undefined,
         };
       });
       console.log(dataProjects)
-
-
-      res.render('index', {user: req.session.user, isLogin : req.session.isLogin,projects: dataProjects });
+      res.render('index', {user: req.session.user, isLogin : req.session.isLogin,project: dataProjects });
     });
   });
 });
@@ -115,7 +117,7 @@ app.get('/project-detail/:id', function (req, res) {
       // console.log(result.rows);
 
       let project = result.rows[0];
-    
+   
       PATH ='http://localhost:5000/uploads/'
       // console.log(project);
       project = {
@@ -125,9 +127,13 @@ app.get('/project-detail/:id', function (req, res) {
         end_date : getFullTime(project.end_date),
         image : project.image ? PATH + project.image : null,
         isLogin,
-      
+        //kondisi untuk di detail project
+        react_js: project.react_js == 'undefined' ? false : project.react_js,
+        node_js: project.node_js == 'undefined' ? false : project.node_js,
+        next_js: project.next_js == 'undefined' ? false : project.next_js,
+        type_script: project.type_script == 'undefined' ? false : project.type_script,
       };
-      
+      console.log(project)
       res.render('project-detail', {isLogin, project });
     });
   });
@@ -177,24 +183,7 @@ app.post('/add-project',upload.single('image'), function (req, res) {
 });
 app.post('/update-project/:id',upload.single('image'), function (req, res) {
   let id = req.params.id;
-  // let{name,
-  //   start_date,
-  //   end_date,
-  //   description, 
-  //   node_js,
-  //   react_js,
-  //   next_js,
-  //   type_script,
-  //   image}=req.body;
-  // let project={name,
-  //             start_date,
-  //             end_date,
-  //             description,
-  //             node_js,
-  //             react_js,
-  //             next_js,
-  //             type_script,
-  //             image};
+  
   project=req.body;
   // project=req.body;
   console.log(project)
@@ -221,8 +210,7 @@ app.post('/update-project/:id',upload.single('image'), function (req, res) {
                       done()
                       req.flash('success', 'Success Update Data!');
                       console.log(result.rows)
-        
-          res.redirect('/')        
+                      res.redirect('/')        
     });
   });
 });
@@ -247,6 +235,10 @@ app.get('/update-project/:id', function (req, res) {
           start_date :  renderDate(update_project.start_date),
           end_date :  renderDate(update_project.end_date),
           image : update_project.image ? PATH + update_project.image : null,
+          node_js: update_project.node_js == 'undefined' ? false : update_project.node_js,
+          react_js: update_project.react_js == 'undefined' ? false : update_project.react_js,
+          next_js: update_project.next_js == 'undefined' ? false : update_project.next_js,
+          type_script: update_project.type_script == 'undefined' ? false : update_project.type_script,
           isLogin,
         }
       })
