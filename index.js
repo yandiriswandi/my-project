@@ -10,7 +10,7 @@ const db = require('./connection/db');
 const upload = require('./middlewares/uploadFile') //untuk handle file upload jpg, pnd, doc dll
 
 const app = express();
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
 const isLogin = true;
 
